@@ -1,0 +1,109 @@
+[
+  {
+    "Source": "docs/art/modern-vanilla-v4/building_component-source.png",
+    "Palette": [
+      "#704D4D",
+      "#935C48",
+      "#B77B55",
+      "#D3A16D",
+      "#5D6375",
+      "#808A98",
+      "#A8B0AE",
+      "#D2CDB8",
+      "#724352",
+      "#9F5456",
+      "#BD7B68"
+    ],
+    "Name": "building_component"
+  },
+  {
+    "Source": "docs/art/modern-vanilla-v4/precision_building_component-source.png",
+    "Palette": [
+      "#806142",
+      "#AD874A",
+      "#D2B16A",
+      "#E7CF92",
+      "#3F6E7C",
+      "#57949C",
+      "#7FB9B7",
+      "#B7D5C4",
+      "#E2DDC0"
+    ],
+    "Name": "precision_building_component"
+  },
+  {
+    "Source": "docs/art/modern-vanilla-v4/blank_core-source.png",
+    "Palette": [
+      "#4D5266",
+      "#75808C",
+      "#AAAFA8",
+      "#D0CCBC",
+      "#55475F",
+      "#786780",
+      "#9F8AA2",
+      "#C4AECB",
+      "#443B55"
+    ],
+    "Name": "blank_core"
+  },
+  {
+    "Source": "docs/art/modern-vanilla-v4/iron_wand_head-source.png",
+    "Palette": [
+      "#4C4B60",
+      "#666478",
+      "#85858F",
+      "#A8A8A5",
+      "#C8C5B5",
+      "#E4DCC3"
+    ],
+    "Name": "iron_wand_head"
+  },
+  {
+    "Source": "docs/art/modern-vanilla-v4/gold_wand_head-source.png",
+    "Palette": [
+      "#745046",
+      "#9A673A",
+      "#BD8A3F",
+      "#D6AC55",
+      "#E9C971",
+      "#F2DFA0"
+    ],
+    "Name": "gold_wand_head"
+  },
+  {
+    "Source": "docs/art/modern-vanilla-v4/diamond_wand_head-source.png",
+    "Palette": [
+      "#376473",
+      "#40818B",
+      "#54A4A6",
+      "#78C5C1",
+      "#A7DDD0",
+      "#D5EADA"
+    ],
+    "Name": "diamond_wand_head"
+  },
+  {
+    "Source": "docs/art/modern-vanilla-v4/netherite_wand_head-source.png",
+    "Palette": [
+      "#342F40",
+      "#49404D",
+      "#5B5058",
+      "#73636A",
+      "#8F7B7A",
+      "#B09B8E"
+    ],
+    "Name": "netherite_wand_head"
+  },
+  {
+    "Source": "docs/art/modern-vanilla-v4/infinity_wand_head-source.png",
+    "Palette": [
+      "#514369",
+      "#6B5085",
+      "#89679D",
+      "#AA88B4",
+      "#C7ACCA",
+      "#E1CCDA"
+    ],
+    "Name": "infinity_wand_head"
+  }
+]

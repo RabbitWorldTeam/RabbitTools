@@ -1,0 +1,42 @@
+[
+  {
+    "Palette": [
+      "#6E361F",
+      "#B56535",
+      "#E8A665",
+      "#606976",
+      "#9CA7B8",
+      "#DCE4F0",
+      "#870D15",
+      "#CE2432"
+    ],
+    "Name": "building_component",
+    "File": "exec-ee281570-5e11-4765-abbe-ce219b22c1c6.png"
+  },
+  {
+    "Palette": [
+      "#8F5B13",
+      "#D7A42B",
+      "#FFE384",
+      "#155C68",
+      "#3AA9B9",
+      "#87DFE5",
+      "#DFFAFF"
+    ],
+    "Name": "precision_building_component",
+    "File": "exec-8fcabcc0-7e70-4562-aa38-e20f99b830b2.png"
+  },
+  {
+    "Palette": [
+      "#313743",
+      "#596575",
+      "#B3C1D5",
+      "#4B415E",
+      "#81728F",
+      "#B8AACB",
+      "#30233E"
+    ],
+    "Name": "blank_core",
+    "File": "exec-52f1fbe2-4078-4933-88a4-e27b36119ebf.png"
+  }
+]

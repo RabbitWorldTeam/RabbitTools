@@ -1,0 +1,33 @@
+{
+  "parent": "rabbittools:root",
+  "criteria": {
+    "diamond_wand": {
+      "conditions": {
+        "items": [
+          {
+            "items": "rabbittools:diamond_wand"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.rabbittools.diamond_wand.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "rabbittools:diamond_wand"
+    },
+    "title": {
+      "translate": "advancement.rabbittools.diamond_wand.title"
+    }
+  },
+  "requirements": [
+    [
+      "diamond_wand"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

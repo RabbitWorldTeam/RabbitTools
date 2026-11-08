@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_blank_core": {
+      "conditions": {
+        "items": [
+          {
+            "items": "rabbittools:blank_core"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "rabbittools:core_angel"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_blank_core"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "rabbittools:core_angel"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "rabbittools:netherite_wand_head"
+    },
+    {
+      "item": "rabbittools:precision_building_component"
+    },
+    {
+      "item": "minecraft:nether_star"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "rabbittools:infinity_wand_head"
+  }
+}

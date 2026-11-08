@@ -1,0 +1,33 @@
+{
+  "parent": "rabbittools:root",
+  "criteria": {
+    "netherite_wand": {
+      "conditions": {
+        "items": [
+          {
+            "items": "rabbittools:netherite_wand"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.rabbittools.netherite_wand.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "rabbittools:netherite_wand"
+    },
+    "title": {
+      "translate": "advancement.rabbittools.netherite_wand.title"
+    }
+  },
+  "requirements": [
+    [
+      "netherite_wand"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

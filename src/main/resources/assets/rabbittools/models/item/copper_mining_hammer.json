@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "rabbittools:item/copper_mining_hammer"
+  }
+}

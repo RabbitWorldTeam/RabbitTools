@@ -1,0 +1,33 @@
+{
+  "parent": "rabbittools:root",
+  "criteria": {
+    "iron_wand": {
+      "conditions": {
+        "items": [
+          {
+            "items": "rabbittools:iron_wand"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.rabbittools.iron_wand.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "rabbittools:iron_wand"
+    },
+    "title": {
+      "translate": "advancement.rabbittools.iron_wand.title"
+    }
+  },
+  "requirements": [
+    [
+      "iron_wand"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,33 @@
+{
+  "parent": "rabbittools:root",
+  "criteria": {
+    "stone_wand": {
+      "conditions": {
+        "items": [
+          {
+            "items": "rabbittools:stone_wand"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.rabbittools.stone_wand.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "rabbittools:stone_wand"
+    },
+    "title": {
+      "translate": "advancement.rabbittools.stone_wand.title"
+    }
+  },
+  "requirements": [
+    [
+      "stone_wand"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

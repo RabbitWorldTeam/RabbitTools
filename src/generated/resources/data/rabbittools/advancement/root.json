@@ -1,0 +1,35 @@
+{
+  "criteria": {
+    "wand": {
+      "conditions": {
+        "items": [
+          {
+            "items": "rabbittools:stone_wand"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "minecraft:textures/block/oak_planks.png",
+    "description": {
+      "translate": "advancement.rabbittools.root.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "rabbittools:stone_wand"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancement.rabbittools.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "wand"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

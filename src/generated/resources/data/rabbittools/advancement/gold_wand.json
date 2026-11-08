@@ -1,0 +1,33 @@
+{
+  "parent": "rabbittools:root",
+  "criteria": {
+    "gold_wand": {
+      "conditions": {
+        "items": [
+          {
+            "items": "rabbittools:gold_wand"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.rabbittools.gold_wand.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "rabbittools:gold_wand"
+    },
+    "title": {
+      "translate": "advancement.rabbittools.gold_wand.title"
+    }
+  },
+  "requirements": [
+    [
+      "gold_wand"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

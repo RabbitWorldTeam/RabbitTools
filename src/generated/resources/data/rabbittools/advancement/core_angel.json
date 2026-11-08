@@ -1,0 +1,33 @@
+{
+  "parent": "rabbittools:root",
+  "criteria": {
+    "core_angel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "rabbittools:core_angel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.rabbittools.core_angel.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "rabbittools:core_angel"
+    },
+    "title": {
+      "translate": "advancement.rabbittools.core_angel.title"
+    }
+  },
+  "requirements": [
+    [
+      "core_angel"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

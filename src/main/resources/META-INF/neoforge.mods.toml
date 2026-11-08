@@ -1,109 +1,24 @@
-modLoader = "javafml"
-loaderVersion = "${loader_version}"
-license = "${license}"
+modLoader="javafml"
+loaderVersion="[4,)"
+license="MIT"
+
 [[mods]]
-modId="${modid}"
-version="${mod_version}"
-displayName="Construction Wands Revived"
-displayURL="https://www.curseforge.com/minecraft/mc-mods/construction-wands-revived"
-logoFile="logo.png"
-authors="${author}"
-description="${description}"
+modId="rabbittools"
+version="${modVersion}"
+displayName="RabbitTools"
+authors="TR4NCE; Construction Wands contributors: ThetaDev, SrNadien"
+description="Mining hammers and construction wands for RabbitHouse. Includes construction cores, undo, previews and container supplies."
 
-[[dependencies.${modid}]]
-    modId="neoforge"
-    type="required"
-    versionRange="${neoversion}"
-    ordering = "NONE"
-    side="BOTH"
-[[dependencies.${modid}]]
-    modId="minecraft"
-    type="required"
-    versionRange="${mcversion}"
-    ordering = "NONE"
-    side="BOTH"
+[[dependencies.rabbittools]]
+modId="neoforge"
+type="required"
+versionRange="[21.1.265,21.2)"
+ordering="NONE"
+side="BOTH"
 
-# jei dependency 
-[[dependencies.${modid}]]
-    modId="jei"
-    type="optional"
-    versionRange="${jei_version}"
-    ordering="AFTER"
-    side = "BOTH"
-
-# emi dependency
-[[dependencies.${modid}]]
-    modId="emi"
-    type="optional"
-    versionRange="[0,)"
-    ordering="AFTER"
-    side="CLIENT"
-
-# guideme dependency 
-[[dependencies.${modid}]]
-    modId="guideme"
-    type="optional"
-    versionRange="${guideme_version}"
-    ordering="AFTER"
-    side = "BOTH"
-
-# ae2 dependency 
-[[dependencies.${modid}]]
-    modId="ae2"
-    type="optional"
-    versionRange="${ae2_version}"
-    ordering="AFTER"
-    side = "BOTH"
-
-# refined storage dependency 
-[[dependencies.${modid}]]
-    modId="refinedstorage"
-    type="optional"
-    versionRange="${refinedstorage_version}"
-    ordering="AFTER"
-    side = "BOTH"
-
-# sophisticated core dependency 
-[[dependencies.${modid}]]
-    modId="sophisticatedcore"
-    type="optional"
-    versionRange="${sophisticatedcore_version}"
-    ordering="AFTER"
-    side = "BOTH"
-
-# sophisticated backpacks dependency 
-[[dependencies.${modid}]]
-    modId="sophisticatedbackpacks"
-    type="optional"
-    versionRange="${sophisticatedbackpacks_version}"
-    ordering="AFTER"
-    side = "BOTH"
-
-[[dependencies.${modid}]]
-modId = "curios"
-type="optional"
-versionRange = "${curios_version}"
-ordering = "NONE"
-side = "BOTH"
-
-[[dependencies.${modid}]]
-modId = "ae2wtlib"
-type="optional"
-versionRange = "${ae2wtlib_version}"
-ordering = "NONE"
-side = "BOTH"
-# rei dependency
-[[dependencies.${modid}]]
-    modId="roughlyenoughitems"
-    type="optional"
-    versionRange="[0,)"
-    ordering="AFTER"
-    side="CLIENT"
-
-# botania dependency
-[[dependencies.${modid}]]
-    modId="botania"
-    type="optional"
-    versionRange="[0,)"
-    ordering="AFTER"
-    side="BOTH"
+[[dependencies.rabbittools]]
+modId="minecraft"
+type="required"
+versionRange="[1.21.1]"
+ordering="NONE"
+side="BOTH"

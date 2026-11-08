@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "c:glass_panes"
+    },
+    "B": {
+      "item": "rabbittools:blank_core"
+    },
+    "O": {
+      "item": "minecraft:nether_star"
+    },
+    "X": {
+      "tag": "c:storage_blocks/netherite"
+    }
+  },
+  "pattern": [
+    "O#X",
+    "#B#",
+    "X#O"
+  ],
+  "result": {
+    "count": 1,
+    "id": "rabbittools:core_exchange"
+  }
+}

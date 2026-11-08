@@ -1,0 +1,33 @@
+{
+  "parent": "rabbittools:root",
+  "criteria": {
+    "void_sack": {
+      "conditions": {
+        "items": [
+          {
+            "items": "rabbittools:void_sack"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.rabbittools.void_sack.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "rabbittools:void_sack"
+    },
+    "title": {
+      "translate": "advancement.rabbittools.void_sack.title"
+    }
+  },
+  "requirements": [
+    [
+      "void_sack"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

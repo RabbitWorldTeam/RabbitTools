@@ -1,0 +1,33 @@
+{
+  "parent": "rabbittools:root",
+  "criteria": {
+    "core_destruction": {
+      "conditions": {
+        "items": [
+          {
+            "items": "rabbittools:core_destruction"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.rabbittools.core_destruction.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "rabbittools:core_destruction"
+    },
+    "title": {
+      "translate": "advancement.rabbittools.core_destruction.title"
+    }
+  },
+  "requirements": [
+    [
+      "core_destruction"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

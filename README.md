@@ -1,160 +1,37 @@
 # RabbitTools
 
-Minecraft 1.21.1 / NeoForge 21.1.265 / Java 21.
-Install RabbitTools on both the client and server. RabbitCore, RabbitMine and the
-original Construction Wands Revived jar are not required.
+适合生存建造、采矿和短距移动的工具集。
 
-## Included tools
+**Minecraft 1.21.1 · NeoForge 21.1.265+（21.1.x） · Java 21**
 
-- Iron, copper, gold and diamond mining hammers, migrated from RabbitMine.
-  Mine a 3x3 plane of pickaxe-mineable blocks; sneak for single-block mining.
-  Recipes, textures, outline preview and vanilla pickaxe enchantments are retained.
-- Wood, stone, iron, gold, diamond, netherite and infinity construction wands.
-- Construction, angel, destruction and exchange cores; wand upgrades and options.
-- Placement preview, undo, random placement, direction/matching restrictions.
-- Inventory, offhand, shulker box, bundle and generic NeoForge item-handler supplies.
-- Void sack, recipes, translations and the upstream configuration system.
-- Building and precision building components, plus five material-specific wand heads.
-- Tradable blank cores (`rabbittools:blank_core`) with no recipe or automatic loot source.
+[发布页](https://github.com/RabbitWorldTeam/RabbitTools/releases) · [Wiki 指南](https://github.com/RabbitWorldTeam/RabbitTools/wiki) · [问题反馈](https://github.com/RabbitWorldTeam/RabbitTools/issues)
 
-All tool IDs use `rabbittools:`. The RabbitTools creative tab contains both tool families.
-The upstream wand mechanics and operating limits are retained. Crafting uses a RabbitTools
-progression: components -> material wand heads -> finished wands. Each angel, destruction
-or exchange core additionally consumes one blank core.
+![建造构件、空白核心和杖头](docs/art/modern-vanilla-v4/textures-preview.png)
 
-## Builder tools
+## 主要功能
 
-- **Masonry Trowel** places one random eligible block from the hotbar per use.
-  Each occupied eligible slot gets one chance. Successful placement uses one block
-  and one durability in survival. The tool has 250 durability.
-- **Measuring Tape** marks two blocks and shows the inclusive dimensions and the
-  space between them. It shows exact center coordinates and highlights the blocks
-  around the center of a line, plane, or volume.
-  Use a third time to start a new measurement, or sneak-use to clear.
-- **Paintbrush** starts with no selected color and no dye points. Sneak-use in the
-  air to open the dye palette. Insert dye and choose Load One or Fill Color.
-  Each dye adds eight points, up to 64 per color. Use the brush on a block to
-  recolor it. Terracotta and hardened concrete cost one point per block. Wool and
-  carpet cost eight. The palette belongs to the brush and the brush has no wear.
-
-## Travel staffs
-
-Sneak and right-click to blink in the direction you are looking. The staff searches
-from far to near along your aim and checks up to two blocks below each sampled
-position for a landing. It can cross walls. The destination needs solid footing,
-clearance for the player, and loaded chunks within the world border. Failed attempts
-spend no durability and start no cooldown. A successful cast consumes one durability
-in survival and starts a three-second cooldown shared between both tiers.
-
-| Staff | Range | Durability |
-| --- | --- | --- |
-| Diamond | 12 blocks | 64 |
-| Netherite | 20 blocks | 128 |
-
-Craft either staff with its existing wand head, two wooden rods and two ender pearls.
-Use the construction wand's diagonal layout and place one pearl directly to the
-left of the wand head and the other directly below it.
-
-Level-2 operators can use the following commands. The switch applies to both tiers and
-all dimensions of the server. It starts enabled and is saved with the world.
-
-```text
-/rabbittools travelstaff status
-/rabbittools travelstaff enable
-/rabbittools travelstaff disable
-```
-
-## Controls and configuration
-
-The default wand option modifier is CTRL (configurable in the client configuration).
-Refer to the translated tooltips and Controls menu for the available bindings.
-Sneak + modifier + right-click empty space opens wand options. Sneak + modifier
-while targeting previous work previews undo; right-click to undo.
-
-- Server defaults (NeoForge 21.1.265): `config/rabbittools-server.toml`.
-- Optional world override: `<world>/serverconfig/rabbittools-server.toml`.
-- Local client preferences: `config/rabbittools-client.toml`.
-
-Server-type configuration is synchronized by NeoForge when connecting.
-Each wand section supports `limit`, `angel`, `destruction`, `exchange` and `upgradeable`;
-non-infinity wands also support `durability`. Set a core's numeric limit to 0 to disable it.
-Hammers retain the original material durability and 3x3 behavior.
-
-## Build and development
-
-```powershell
-.\gradlew.bat build
-.\gradlew.bat runClient
-.\gradlew.bat runServer
-```
-
-The distributable is `build/libs/rabbittools-1.21.1-neoforge-1.0.0.jar`; the sources jar is for development.
-If Windows Java fails to establish a loopback connection because its sandbox TEMP path
-is too long, create `build/tmp/java` and set a short temporary path for the command:
-
-```powershell
-New-Item -ItemType Directory -Path build/tmp/java -Force
-$env:JAVA_TOOL_OPTIONS="-Djdk.net.unixdomain.tmpdir=$((Get-Location).Path)\build\tmp\java"
-.\gradlew.bat build
-```
-
-## Migration and scope
-
-RabbitMine no longer registers hammers. Existing `rabbitmine:*_mining_hammer` stacks
-are not remapped; this was explicitly approved for test worlds. Likewise, old
-`constructionwand:*` items and configurations are not migrated.
-
-Third-party-specific adapters (AE2, RS, Curios, Sophisticated Backpacks, Botania,
-JEI/REI/EMI extensions) are excluded. Ordinary recipes still use standard Minecraft
-recipe data. Generic item-handler containers remain supported without those adapters.
-
-
-## Blank core supply control
-
-Blank cores are ordinary transferable, stackable items. They have no crafting recipe,
-loot table, automatic grant or player binding. They are visible in the creative tab.
-Administrators can issue them manually or configure external quest/event rewards:
-
-```mcfunction
-give <player> rabbittools:blank_core 1
-```
-
-Each angel, destruction or exchange core consumes exactly one blank core in addition
-to four glass panes, two of the previous corner material and two of the previous center material. The blank core occupies the center; the original center material occupies the top-left and bottom-right corners. Installing a completed core consumes only that core,
-with no additional blank-core cost or blank-core refund. Existing completed cores and
-installed upgrades remain usable. This controls new special-core production through
-issued supply, rather than enforcing a per-player possession limit. Void sacks also
-indirectly require this supply because their recipe uses a destruction core.
-
-## Wand head crafting progression
-
-| Wand head | Ingredients |
+| 工具 | 用途 |
 | --- | --- |
-| Iron | 1 Building Component + 2 iron ingots, shapeless |
-| Gold | 1 Building Component + 2 gold ingots, shapeless |
-| Diamond | 1 Precision Building Component + 2 diamonds, shapeless |
-| Netherite | Diamond Wand Head + netherite upgrade template + netherite ingot, smithing |
-| Infinity | Netherite Wand Head + Precision Building Component + Nether Star, shapeless |
+| 建筑手杖 | 批量铺方块，支持预览、撤销和功能核心 |
+| 采矿锤 | 开采 3×3 平面，潜行切换单格 |
+| 传送手杖 | 潜行右键短距穿墙，落到安全地面 |
+| 砌筑铲 | 从快捷栏随机取材，逐格混铺 |
+| 测量尺 | 两点测量尺寸、净空和几何中心 |
+| 上色刷 | 潜行右键打开 16 色调色盘 |
+| 虚空袋 | 自动收纳拾取物，可连接容器 |
 
-Every recipe produces one head. Each finished iron/gold/diamond/netherite/infinity wand
-uses one matching head plus two wooden rods, using the original diagonal wand layout.
-Wood and stone wand recipes remain unchanged. The old direct-material recipes for the
-five higher-tier wands have been replaced, so those wands cannot bypass head crafting.
+## 安装
 
-Wand heads are plain crafting materials, not installable functional cores, and do not
-require blank cores. No completed wand is consumed in this progression: install special
-cores after crafting the desired wand. Existing completed wands remain usable.
+将 `rabbittools-1.21.1-neoforge-1.0.0.jar` 放入客户端和服务端的 `mods/`。RabbitTools 可独立安装。
 
-## Credits
+## 常用入口
 
-Construction wand code and assets derive from Construction Wands Revived,
-Neo/1.21.1 revision `7bee74d5986a35adda53a1f029cb8a02e41b24b0`.
-See THIRD_PARTY_NOTICES.md and LICENSE. RabbitTools includes the license in its jar.
+- `/rabbittools travelstaff status` · 查询传送手杖状态，使用 `enable` 或 `disable` 切换。
+- `config/rabbittools-server.toml` · 建造手杖和核心限制。
+- `config/rabbittools-client.toml` · 本地显示与操作偏好。
 
-## Current artwork
+## 从源码构建
 
-The three components and five wand heads follow a modern vanilla material treatment:
-restrained contrast, coherent pixel clusters, warm/cool hue shifts and selective colored
-outlines. Their exact original 16x16 silhouettes remain unchanged. See docs/ART_STYLE.md
-for the art guide and docs/art/modern-vanilla-v4/README.md for native previews, source
-images, material palettes and full generation prompts. Recipes and mechanics are unchanged.
+`./gradlew build`，Windows 使用 `.\gradlew.bat build`。JAR 输出到 `build/libs/`。
+
+[验证记录](docs/VERIFICATION.md) · [美术规范](docs/ART_STYLE.md) · [第三方声明](THIRD_PARTY_NOTICES.md) · [MIT](LICENSE)

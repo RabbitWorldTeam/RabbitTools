@@ -11,6 +11,7 @@ import com.tr4nce.rabbittools.items.core.ItemCoreDestruction;
 import com.tr4nce.rabbittools.items.core.ItemCoreExchange;
 import com.tr4nce.rabbittools.items.wand.ItemWandBasic;
 import com.tr4nce.rabbittools.items.wand.ItemWandInfinity;
+import com.tr4nce.rabbittools.items.wand.TravelStaffItem;
 
 public class ModItems
 {
@@ -23,6 +24,11 @@ public class ModItems
     public static final DeferredItem<Item> WAND_DIAMOND   = ITEMS.register("diamond_wand",   () -> new ItemWandBasic(new Item.Properties().stacksTo(1), Tiers.DIAMOND));
     public static final DeferredItem<Item> WAND_NETHERITE = ITEMS.register("netherite_wand", () -> new ItemWandBasic(new Item.Properties().stacksTo(1).fireResistant(), Tiers.NETHERITE));
     public static final DeferredItem<Item> WAND_INFINITY  = ITEMS.register("infinity_wand",  () -> new ItemWandInfinity(new Item.Properties().stacksTo(1)));
+
+    public static final DeferredItem<Item> DIAMOND_TRAVEL_STAFF = ITEMS.register("diamond_travel_staff",
+            () -> new TravelStaffItem(new Item.Properties().durability(64), 12));
+    public static final DeferredItem<Item> NETHERITE_TRAVEL_STAFF = ITEMS.register("netherite_travel_staff",
+            () -> new TravelStaffItem(new Item.Properties().durability(128).fireResistant(), 20));
 
     public static final DeferredItem<Item> BUILDING_COMPONENT = ITEMS.register("building_component",
             () -> new Item(new Item.Properties()));

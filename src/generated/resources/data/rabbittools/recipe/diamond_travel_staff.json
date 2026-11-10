@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "tag": "c:rods/wooden"
+    },
+    "P": {
+      "item": "minecraft:ender_pearl"
+    },
+    "X": {
+      "item": "rabbittools:diamond_wand_head"
+    }
+  },
+  "pattern": [
+    " PX",
+    " #P",
+    "#  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "rabbittools:diamond_travel_staff"
+  }
+}

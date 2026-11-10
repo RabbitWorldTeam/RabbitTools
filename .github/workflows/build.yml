@@ -1,19 +1,36 @@
 name: Build RabbitTools
-on: [push, pull_request, workflow_dispatch]
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
 permissions:
   contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
       - uses: actions/setup-java@v6
         with:
           distribution: temurin
           java-version: '21'
-      - run: chmod +x gradlew
-      - run: ./gradlew build
-      - uses: actions/upload-artifact@v7
-        with:
-          name: RabbitTools
-          path: build/libs/*.jar
+          cache: gradle
+      - name: Build and test
+        run: bash ./gradlew build
+      - name: Find the runtime JAR
+        shell: bash
+        run: |
+          minecraft=$(sed -n 's/^minecraft_version=//p' gradle.properties | tr -d '\r')
+          version=$(sed -n 's/^mod_version=//p' gradle.properties | tr -d '\r')
+          [[ "$minecraft" =~ ^[0-9]+(\.[0-9]+)+$ ]]
+          [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+([.-][A-Za-z0-9]+)*$ ]]
+          jar="rabbittools-$minecraft-neoforge-$version.jar"
+          test -s "build/libs/$jar"

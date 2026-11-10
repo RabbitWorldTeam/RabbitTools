@@ -88,7 +88,7 @@ Hammers retain the original material durability and 3x3 behavior.
 .\gradlew.bat runServer
 ```
 
-The distributable is `build/libs/rabbittools-1.0.0.jar`; the sources jar is for development.
+The distributable is `build/libs/rabbittools-1.21.1-neoforge-1.0.0.jar`; the sources jar is for development.
 If Windows Java fails to establish a loopback connection because its sandbox TEMP path
 is too long, create `build/tmp/java` and set a short temporary path for the command:
 

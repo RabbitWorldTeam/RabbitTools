@@ -1,5 +1,7 @@
 package com.tr4nce.rabbittools.registry;
 
+import com.tr4nce.rabbittools.items.tool.PaintbrushMenu;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.inventory.MenuType;
 import net.neoforged.bus.api.IEventBus;
@@ -24,6 +26,10 @@ public class ModMenuTypes
                         return new MenuVoidSack(windowId, inv, hand);
                     }));
 
+    public static final DeferredHolder<MenuType<?>, MenuType<PaintbrushMenu>> PAINTBRUSH =
+            MENU_TYPES.register("paintbrush", () ->
+                    IMenuTypeExtension.create((id, inventory, data) -> new PaintbrushMenu(id, inventory,
+                            data.readBoolean() ? InteractionHand.MAIN_HAND : InteractionHand.OFF_HAND)));
     public static void register(IEventBus eventBus) {
         MENU_TYPES.register(eventBus);
     }

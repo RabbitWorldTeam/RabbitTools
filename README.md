@@ -22,6 +22,21 @@ The upstream wand mechanics and operating limits are retained. Crafting uses a R
 progression: components -> material wand heads -> finished wands. Each angel, destruction
 or exchange core additionally consumes one blank core.
 
+## Builder tools
+
+- **Masonry Trowel** places one random eligible block from the hotbar per use.
+  Each occupied eligible slot gets one chance. Successful placement uses one block
+  and one durability in survival. The tool has 250 durability.
+- **Measuring Tape** marks two blocks and shows the inclusive dimensions and the
+  space between them. It shows exact center coordinates and highlights the blocks
+  around the center of a line, plane, or volume.
+  Use a third time to start a new measurement, or sneak-use to clear.
+- **Paintbrush** starts with no selected color and no dye points. Sneak-use in the
+  air to open the dye palette. Insert dye and choose Load One or Fill Color.
+  Each dye adds eight points, up to 64 per color. Use the brush on a block to
+  recolor it. Terracotta and hardened concrete cost one point per block. Wool and
+  carpet cost eight. The palette belongs to the brush and the brush has no wear.
+
 ## Travel staffs
 
 Sneak and right-click to blink in the direction you are looking. The staff searches

@@ -1,5 +1,8 @@
 package com.tr4nce.rabbittools.items;
 
+import com.tr4nce.rabbittools.items.tool.MasonryTrowelItem;
+import com.tr4nce.rabbittools.items.tool.MeasuringTapeItem;
+import com.tr4nce.rabbittools.items.tool.PaintbrushItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tiers;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -30,6 +33,12 @@ public class ModItems
     public static final DeferredItem<Item> NETHERITE_TRAVEL_STAFF = ITEMS.register("netherite_travel_staff",
             () -> new TravelStaffItem(new Item.Properties().durability(128).fireResistant(), 20));
 
+    public static final DeferredItem<MasonryTrowelItem> MASONRY_TROWEL = ITEMS.register("masonry_trowel",
+            () -> new MasonryTrowelItem(new Item.Properties().durability(250)));
+    public static final DeferredItem<MeasuringTapeItem> MEASURING_TAPE = ITEMS.register("measuring_tape",
+            () -> new MeasuringTapeItem(new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<PaintbrushItem> PAINTBRUSH = ITEMS.register("paintbrush",
+            () -> new PaintbrushItem(new Item.Properties().stacksTo(1)));
     public static final DeferredItem<Item> BUILDING_COMPONENT = ITEMS.register("building_component",
             () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> PRECISION_BUILDING_COMPONENT = ITEMS.register("precision_building_component",

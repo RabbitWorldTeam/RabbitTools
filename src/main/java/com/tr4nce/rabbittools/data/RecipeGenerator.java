@@ -43,6 +43,9 @@ public class RecipeGenerator extends RecipeProvider {
         coreRecipe(output, ModItems.CORE_DESTRUCTION.get(), Inp.fromTag(Tags.Items.STORAGE_BLOCKS_DIAMOND), Inp.fromItem(Items.DIAMOND_PICKAXE));
         coreRecipe(output, ModItems.CORE_EXCHANGE.get(), Inp.fromItem(Items.NETHER_STAR), Inp.fromTag(Tags.Items.STORAGE_BLOCKS_NETHERITE));
 
+        travelStaffRecipe(output, ModItems.DIAMOND_TRAVEL_STAFF.get(), ModItems.DIAMOND_WAND_HEAD.get());
+        travelStaffRecipe(output, ModItems.NETHERITE_TRAVEL_STAFF.get(), ModItems.NETHERITE_WAND_HEAD.get());
+        builderToolRecipes(output);
         componentRecipes(output);
         wandHeadRecipes(output);
         voidSackRecipe(output);
@@ -50,6 +53,35 @@ public class RecipeGenerator extends RecipeProvider {
         specialRecipe(output, ModRecipes.WAND_UPGRADE.get());
     }
 
+    private void builderToolRecipes(RecipeOutput output) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.MASONRY_TROWEL.get())
+                .define('I', Items.IRON_INGOT)
+                .define('S', Items.STICK)
+                .pattern(" II")
+                .pattern(" SI")
+                .pattern("S  ")
+                .unlockedBy("has_iron", has(Items.IRON_INGOT))
+                .save(output);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.MEASURING_TAPE.get())
+                .define('C', Items.COPPER_INGOT)
+                .define('S', Items.STRING)
+                .pattern("CSC")
+                .unlockedBy("has_copper", has(Items.COPPER_INGOT))
+                .save(output);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.PAINTBRUSH.get())
+                .define('C', Items.COPPER_INGOT)
+                .define('W', ItemTags.WOOL)
+                .define('B', Items.BUCKET)
+                .define('S', Items.STICK)
+                .define('P', Items.BRUSH)
+                .pattern("CWC")
+                .pattern("BSB")
+                .pattern(" P ")
+                .unlockedBy("has_brush", has(Items.BRUSH))
+                .save(output);
+    }
     private void componentRecipes(RecipeOutput output) {
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.BUILDING_COMPONENT.get())
                 .define('I', Items.IRON_INGOT)
@@ -111,6 +143,18 @@ public class RecipeGenerator extends RecipeProvider {
                 .pattern(" # ")
                 .pattern("#  ")
                 .unlockedBy("has_item", inventoryTrigger(material.predicate))
+                .save(output);
+    }
+
+    private void travelStaffRecipe(RecipeOutput output, ItemLike staff, ItemLike head) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, staff)
+                .define('X', head)
+                .define('#', Tags.Items.RODS_WOODEN)
+                .define('P', Items.ENDER_PEARL)
+                .pattern(" PX")
+                .pattern(" #P")
+                .pattern("#  ")
+                .unlockedBy("has_wand_head", has(head))
                 .save(output);
     }
 

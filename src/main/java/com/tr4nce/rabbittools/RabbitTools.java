@@ -17,6 +17,7 @@ import com.tr4nce.rabbittools.basics.ModStats;
 import com.tr4nce.rabbittools.client.ClientEvents;
 import com.tr4nce.rabbittools.client.RenderBlockPreview;
 import com.tr4nce.rabbittools.client.property.SelectWandCore;
+import com.tr4nce.rabbittools.command.TravelStaffCommand;
 import com.tr4nce.rabbittools.component.ModDataComponents;
 import com.tr4nce.rabbittools.containers.ContainerManager;
 import com.tr4nce.rabbittools.containers.ContainerRegistrar;
@@ -62,6 +63,7 @@ public class RabbitTools {
         container.registerConfig(ModConfig.Type.SERVER, ConfigServer.SPEC);
         container.registerConfig(ModConfig.Type.CLIENT, ConfigClient.SPEC);
 
+        NeoForge.EVENT_BUS.addListener(TravelStaffCommand::register);
         NeoForge.EVENT_BUS.register(new VoidSackDropHandler());
         NeoForge.EVENT_BUS.register(new VoidSackPickupHandler());
     }

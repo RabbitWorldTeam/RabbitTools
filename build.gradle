@@ -5,7 +5,7 @@ plugins {
 
 version = mod_version
 group = 'com.tr4nce'
-base { archivesName = 'rabbittools' }
+base { archivesName = "rabbittools-${minecraft_version}-neoforge" }
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 java { withSourcesJar() }
 

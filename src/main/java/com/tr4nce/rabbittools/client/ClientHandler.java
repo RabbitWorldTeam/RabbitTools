@@ -1,6 +1,7 @@
 package com.tr4nce.rabbittools.client;
 
 import com.tr4nce.rabbittools.RabbitTools;
+import com.tr4nce.rabbittools.client.screen.PaintbrushScreen;
 import com.tr4nce.rabbittools.client.screen.ScreenVoidSack;
 import com.tr4nce.rabbittools.registry.ModMenuTypes;
 import net.neoforged.api.distmarker.Dist;
@@ -30,6 +31,7 @@ public class ClientHandler {
 
     @SubscribeEvent
     public static void registerMenuScreens(RegisterMenuScreensEvent event) {
+        event.register(ModMenuTypes.PAINTBRUSH.get(), PaintbrushScreen::new);
         event.register(ModMenuTypes.VOID_SACK.get(), ScreenVoidSack::new);
     }
 }

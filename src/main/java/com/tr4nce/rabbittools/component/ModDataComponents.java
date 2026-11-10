@@ -51,6 +51,12 @@ public class ModDataComponents
                     .networkSynchronized(ByteBufCodecs.COMPOUND_TAG)
                     .build());
 
+    public static final Supplier<DataComponentType<CompoundTag>> PAINTBRUSH_DATA =
+            DATA_COMPONENT_TYPES.register("paintbrush_data", () ->
+                    DataComponentType.<CompoundTag>builder()
+                            .persistent(CompoundTag.CODEC)
+                            .networkSynchronized(ByteBufCodecs.COMPOUND_TAG)
+                            .build());
     // ── Void Sack ─────────────────────────────────────────────────────────────
     public static final Supplier<DataComponentType<CompoundTag>> VOID_SACK_DATA =
             DATA_COMPONENT_TYPES.register("void_sack_data", () ->

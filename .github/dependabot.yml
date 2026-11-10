@@ -1,5 +1,3 @@
-# Keeps the workflow actions current on its own. Without this, action versions
-# silently rot until a runtime deprecation breaks a release.
 version: 2
 updates:
   - package-ecosystem: "github-actions"
@@ -11,3 +9,16 @@ updates:
     groups:
       actions:
         patterns: ["*"]
+
+  - package-ecosystem: "gradle"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "chore"
+    ignore:
+      - dependency-name: "net.neoforged:neoforge"
+    groups:
+      gradle-dependencies:
+        patterns: ["*"]
+        update-types: ["minor", "patch"]

@@ -96,3 +96,20 @@
 - 八张 PNG 均已改变，jar 内 SHA-256 与本地最终文件一致；23 个配方 SHA-256 均未变化。
 - build --offline 通过；本次未改 Java 行为，也未重复启动服务端或进游戏实测。
 - 美术规范见 docs/ART_STYLE.md；源图、完整提示词、色板及前后预览见 docs/art/modern-vanilla-v4。
+
+## 传送手杖验证
+
+- Minecraft 1.21.1 / NeoForge 21.1.265，数据生成和构建通过。
+- 本机开发专用服务端加载 1315 个配方。临时夹具调用手杖的服务端使用入口，验证平地、高台、空气、玻璃墙、身体路径空间、两档距离、耐久、共享冷却与禁用。夹具模拟了玩家位置更新，未验证客户端网络传送与实际手持显示。
+- 执行禁用指令并保存，正常关闭和重启后状态仍为禁用。启用指令成功恢复状态。
+- 两张 16×16 贴图保留建筑手杖原杖身和透明轮廓。imagegen 生成末影珍珠配色设计，再将杖头中心取样到原生像素。
+
+生成提示词：
+
+- diamond: Edit the reference Minecraft 16x16 diamond building wand sprite to make a RabbitTools travel staff. Preserve the diagonal shaft and exact small original silhouette, length and transparent padding. Change only the material at the upper-right tip into a small ender-pearl teal-green inset with a darker blue-green edge and one restrained warm highlight. Keep the tier's diamond cyan outer metal around the pearl. Modern vanilla Minecraft item palette, compact clean pixel clusters, no outline glow, no particles, no text, no new shaft. Strict logical 16x16 sprite, enlarged with nearest neighbor and transparent background. The original lower shaft must remain visually the same.
+- netherite: Edit the reference Minecraft 16x16 netherite building wand sprite to make a RabbitTools travel staff. Preserve the diagonal shaft and exact small original silhouette, length and transparent padding. Change only the material at the upper-right tip into a small ender-pearl teal-green inset with a darker blue-green edge and one restrained warm highlight. Keep the tier's dark warm-gray netherite outer metal around the pearl. Modern vanilla Minecraft item palette, compact clean pixel clusters, no outline glow, no particles, no text, no new shaft. Strict logical 16x16 sprite, enlarged with nearest neighbor and transparent background. The original lower shaft must remain visually the same.
+
+## 传送手杖穿墙与配方调整
+
+- 开发专用服务端加载 1315 个配方。临时服务端夹具以平视方向使用手杖，验证平地落点、穿过实心墙、高台、身体空间不足、危险地面、悬空、两档距离、耐久、共享冷却与禁用。
+- 夹具调用物品的服务端使用入口并模拟位置更新，客户端联机操作留待实测。

@@ -22,6 +22,33 @@ The upstream wand mechanics and operating limits are retained. Crafting uses a R
 progression: components -> material wand heads -> finished wands. Each angel, destruction
 or exchange core additionally consumes one blank core.
 
+## Travel staffs
+
+Sneak and right-click to blink in the direction you are looking. The staff searches
+from far to near along your aim and checks up to two blocks below each sampled
+position for a landing. It can cross walls. The destination needs solid footing,
+clearance for the player, and loaded chunks within the world border. Failed attempts
+spend no durability and start no cooldown. A successful cast consumes one durability
+in survival and starts a three-second cooldown shared between both tiers.
+
+| Staff | Range | Durability |
+| --- | --- | --- |
+| Diamond | 12 blocks | 64 |
+| Netherite | 20 blocks | 128 |
+
+Craft either staff with its existing wand head, two wooden rods and two ender pearls.
+Use the construction wand's diagonal layout and place one pearl directly to the
+left of the wand head and the other directly below it.
+
+Level-2 operators can use the following commands. The switch applies to both tiers and
+all dimensions of the server. It starts enabled and is saved with the world.
+
+```text
+/rabbittools travelstaff status
+/rabbittools travelstaff enable
+/rabbittools travelstaff disable
+```
+
 ## Controls and configuration
 
 The default wand option modifier is CTRL (configurable in the client configuration).

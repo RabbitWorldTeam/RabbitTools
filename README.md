@@ -22,6 +22,48 @@ The upstream wand mechanics and operating limits are retained. Crafting uses a R
 progression: components -> material wand heads -> finished wands. Each angel, destruction
 or exchange core additionally consumes one blank core.
 
+## Builder tools
+
+- **Masonry Trowel** places one random eligible block from the hotbar per use.
+  Each occupied eligible slot gets one chance. Successful placement uses one block
+  and one durability in survival. The tool has 250 durability.
+- **Measuring Tape** marks two blocks and shows the inclusive dimensions and the
+  space between them. It shows exact center coordinates and highlights the blocks
+  around the center of a line, plane, or volume.
+  Use a third time to start a new measurement, or sneak-use to clear.
+- **Paintbrush** starts with no selected color and no dye points. Sneak-use in the
+  air to open the dye palette. Insert dye and choose Load One or Fill Color.
+  Each dye adds eight points, up to 64 per color. Use the brush on a block to
+  recolor it. Terracotta and hardened concrete cost one point per block. Wool and
+  carpet cost eight. The palette belongs to the brush and the brush has no wear.
+
+## Travel staffs
+
+Sneak and right-click to blink in the direction you are looking. The staff searches
+from far to near along your aim and checks up to two blocks below each sampled
+position for a landing. It can cross walls. The destination needs solid footing,
+clearance for the player, and loaded chunks within the world border. Failed attempts
+spend no durability and start no cooldown. A successful cast consumes one durability
+in survival and starts a three-second cooldown shared between both tiers.
+
+| Staff | Range | Durability |
+| --- | --- | --- |
+| Diamond | 12 blocks | 64 |
+| Netherite | 20 blocks | 128 |
+
+Craft either staff with its existing wand head, two wooden rods and two ender pearls.
+Use the construction wand's diagonal layout and place one pearl directly to the
+left of the wand head and the other directly below it.
+
+Level-2 operators can use the following commands. The switch applies to both tiers and
+all dimensions of the server. It starts enabled and is saved with the world.
+
+```text
+/rabbittools travelstaff status
+/rabbittools travelstaff enable
+/rabbittools travelstaff disable
+```
+
 ## Controls and configuration
 
 The default wand option modifier is CTRL (configurable in the client configuration).
@@ -46,7 +88,7 @@ Hammers retain the original material durability and 3x3 behavior.
 .\gradlew.bat runServer
 ```
 
-The distributable is `build/libs/rabbittools-1.0.0.jar`; the sources jar is for development.
+The distributable is `build/libs/rabbittools-1.21.1-neoforge-1.0.0.jar`; the sources jar is for development.
 If Windows Java fails to establish a loopback connection because its sandbox TEMP path
 is too long, create `build/tmp/java` and set a short temporary path for the command:
 

@@ -1,5 +1,8 @@
 package com.tr4nce.rabbittools.items;
 
+import com.tr4nce.rabbittools.items.tool.MasonryTrowelItem;
+import com.tr4nce.rabbittools.items.tool.MeasuringTapeItem;
+import com.tr4nce.rabbittools.items.tool.PaintbrushItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tiers;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -11,6 +14,7 @@ import com.tr4nce.rabbittools.items.core.ItemCoreDestruction;
 import com.tr4nce.rabbittools.items.core.ItemCoreExchange;
 import com.tr4nce.rabbittools.items.wand.ItemWandBasic;
 import com.tr4nce.rabbittools.items.wand.ItemWandInfinity;
+import com.tr4nce.rabbittools.items.wand.TravelStaffItem;
 
 public class ModItems
 {
@@ -24,6 +28,17 @@ public class ModItems
     public static final DeferredItem<Item> WAND_NETHERITE = ITEMS.register("netherite_wand", () -> new ItemWandBasic(new Item.Properties().stacksTo(1).fireResistant(), Tiers.NETHERITE));
     public static final DeferredItem<Item> WAND_INFINITY  = ITEMS.register("infinity_wand",  () -> new ItemWandInfinity(new Item.Properties().stacksTo(1)));
 
+    public static final DeferredItem<Item> DIAMOND_TRAVEL_STAFF = ITEMS.register("diamond_travel_staff",
+            () -> new TravelStaffItem(new Item.Properties().durability(64), 12));
+    public static final DeferredItem<Item> NETHERITE_TRAVEL_STAFF = ITEMS.register("netherite_travel_staff",
+            () -> new TravelStaffItem(new Item.Properties().durability(128).fireResistant(), 20));
+
+    public static final DeferredItem<MasonryTrowelItem> MASONRY_TROWEL = ITEMS.register("masonry_trowel",
+            () -> new MasonryTrowelItem(new Item.Properties().durability(250)));
+    public static final DeferredItem<MeasuringTapeItem> MEASURING_TAPE = ITEMS.register("measuring_tape",
+            () -> new MeasuringTapeItem(new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<PaintbrushItem> PAINTBRUSH = ITEMS.register("paintbrush",
+            () -> new PaintbrushItem(new Item.Properties().stacksTo(1)));
     public static final DeferredItem<Item> BUILDING_COMPONENT = ITEMS.register("building_component",
             () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> PRECISION_BUILDING_COMPONENT = ITEMS.register("precision_building_component",

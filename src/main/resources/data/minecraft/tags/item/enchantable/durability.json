@@ -1,0 +1,13 @@
+{
+    "values": [
+        "rabbittools:wood_wand",
+        "rabbittools:stone_wand",
+        "rabbittools:iron_wand",
+        "rabbittools:gold_wand",
+        "rabbittools:diamond_wand",
+        "rabbittools:netherite_wand",
+        "rabbittools:diamond_travel_staff",
+        "rabbittools:netherite_travel_staff",
+        "rabbittools:masonry_trowel"
+    ]
+}

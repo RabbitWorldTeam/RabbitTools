@@ -10,6 +10,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.Block;
@@ -42,6 +43,11 @@ public final class MasonryTrowelItem extends Item {
 
     public MasonryTrowelItem(Properties properties) {
         super(properties);
+    }
+
+    @Override
+    public boolean isValidRepairItem(ItemStack toRepair, ItemStack repair) {
+        return repair.is(Items.IRON_INGOT);
     }
 
     @SubscribeEvent(priority = EventPriority.LOWEST)

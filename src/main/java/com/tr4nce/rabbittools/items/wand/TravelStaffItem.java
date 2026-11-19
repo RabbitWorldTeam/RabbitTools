@@ -37,10 +37,17 @@ public final class TravelStaffItem extends Item implements ICustomItemModel {
     private static final int MAX_LANDING_DROP = 2;
     private static final double COLLISION_EPSILON = 1.0E-6;
     private final int range;
+    private final Item repairMaterial;
 
-    public TravelStaffItem(Properties properties, int range) {
+    public TravelStaffItem(Properties properties, int range, Item repairMaterial) {
         super(properties);
         this.range = range;
+        this.repairMaterial = repairMaterial;
+    }
+
+    @Override
+    public boolean isValidRepairItem(ItemStack toRepair, ItemStack repair) {
+        return repair.is(repairMaterial);
     }
 
     @Override

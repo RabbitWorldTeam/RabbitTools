@@ -6,6 +6,7 @@ import com.tr4nce.rabbittools.items.tool.MeasuringTapeItem;
 import com.tr4nce.rabbittools.items.tool.PaintbrushItem;
 import com.tr4nce.rabbittools.items.tool.ScrewdriverItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tiers;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -31,16 +32,16 @@ public class ModItems
     public static final DeferredItem<Item> WAND_INFINITY  = ITEMS.register("infinity_wand",  () -> new ItemWandInfinity(new Item.Properties().stacksTo(1)));
 
     public static final DeferredItem<Item> DIAMOND_TRAVEL_STAFF = ITEMS.register("diamond_travel_staff",
-            () -> new TravelStaffItem(new Item.Properties().durability(64), 12));
+            () -> new TravelStaffItem(new Item.Properties().durability(64), 12, Items.DIAMOND));
     public static final DeferredItem<Item> NETHERITE_TRAVEL_STAFF = ITEMS.register("netherite_travel_staff",
-            () -> new TravelStaffItem(new Item.Properties().durability(128).fireResistant(), 20));
+            () -> new TravelStaffItem(new Item.Properties().durability(128).fireResistant(), 20, Items.NETHERITE_INGOT));
 
     public static final DeferredItem<ScrewdriverItem> SCREWDRIVER = ITEMS.register("screwdriver",
             () -> new ScrewdriverItem(new Item.Properties().stacksTo(1)));
     public static final DeferredItem<BuildingWrenchItem> BUILDING_WRENCH = ITEMS.register("building_wrench",
             () -> new BuildingWrenchItem(new Item.Properties().stacksTo(1)));
     public static final DeferredItem<MasonryTrowelItem> MASONRY_TROWEL = ITEMS.register("masonry_trowel",
-            () -> new MasonryTrowelItem(new Item.Properties().durability(250)));
+            () -> new MasonryTrowelItem(new Item.Properties().durability(500)));
     public static final DeferredItem<MeasuringTapeItem> MEASURING_TAPE = ITEMS.register("measuring_tape",
             () -> new MeasuringTapeItem(new Item.Properties().stacksTo(1)));
     public static final DeferredItem<PaintbrushItem> PAINTBRUSH = ITEMS.register("paintbrush",

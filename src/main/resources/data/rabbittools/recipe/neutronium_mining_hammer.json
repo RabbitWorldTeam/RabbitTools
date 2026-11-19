@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "NNN",
+    " H "
+  ],
+  "key": {
+    "N": {
+      "item": "rabbittools:neutronium_ingot"
+    },
+    "H": {
+      "item": "rabbittools:netherite_mining_hammer"
+    }
+  },
+  "result": {
+    "id": "rabbittools:neutronium_mining_hammer"
+  }
+}

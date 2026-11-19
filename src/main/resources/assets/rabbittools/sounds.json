@@ -1,0 +1,12 @@
+{
+  "building_wrench": {
+    "sounds": [
+      "rabbittools:building_wrench"
+    ]
+  },
+  "screwdriver": {
+    "sounds": [
+      "rabbittools:screwdriver"
+    ]
+  }
+}

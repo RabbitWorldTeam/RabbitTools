@@ -2,6 +2,7 @@ package com.tr4nce.rabbittools.items.containeritems;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -73,18 +74,19 @@ public class ItemVoidSack extends Item
 
     // ─── Inventario interno 4×4 ───────────────────────────────────────────────
 
-    public static SimpleContainer loadInventory(ItemStack sack) {
+    public static SimpleContainer loadInventory(ItemStack sack, HolderLookup.Provider registries) {
         SimpleContainer inv = new SimpleContainer(SIZE);
         CompoundTag tag = getData(sack);
         if (!tag.contains(TAG_ITEMS, Tag.TAG_LIST)) return inv;
 
         ListTag list = tag.getList(TAG_ITEMS, Tag.TAG_COMPOUND);
+        var ops = registries.createSerializationContext(NbtOps.INSTANCE);
         for (int i = 0; i < list.size(); i++) {
             CompoundTag slot = list.getCompound(i);
             int slotIdx = slot.getByte("Slot") & 0xFF;
             if (slotIdx >= SIZE) continue;
             ItemStack s = ItemStack.CODEC
-                    .parse(NbtOps.INSTANCE, slot)
+                    .parse(ops, slot)
                     .result()
                     .orElse(ItemStack.EMPTY);
             if (!s.isEmpty()) inv.setItem(slotIdx, s);
@@ -92,15 +94,16 @@ public class ItemVoidSack extends Item
         return inv;
     }
 
-    public static void saveInventory(ItemStack sack, SimpleContainer inv) {
+    public static void saveInventory(ItemStack sack, SimpleContainer inv, HolderLookup.Provider registries) {
         CompoundTag tag = getData(sack).copy();
         ListTag list = new ListTag();
+        var ops = registries.createSerializationContext(NbtOps.INSTANCE);
 
         for (int i = 0; i < inv.getContainerSize(); i++) {
             ItemStack s = inv.getItem(i);
             if (s.isEmpty()) continue;
             Tag encoded = ItemStack.CODEC
-                    .encodeStart(NbtOps.INSTANCE, s)
+                    .encodeStart(ops, s)
                     .result()
                     .orElse(null);
             if (!(encoded instanceof CompoundTag slot)) continue;
@@ -168,6 +171,10 @@ public class ItemVoidSack extends Item
 
     // ─── Recepción de ítems ───────────────────────────────────────────────────
 
+    static boolean canStore(ItemStack stack) {
+        return !(stack.getItem() instanceof ItemVoidSack);
+    }
+
     public static int receive(ServerLevel level, ItemStack sack, ItemStack toInsert) {
         if (sack.isEmpty() || toInsert.isEmpty()) return toInsert.getCount();
 
@@ -179,11 +186,11 @@ public class ItemVoidSack extends Item
         }
 
         // Inactivo: solo reenvía al contenedor enlazado, no almacena internamente.
-        if (!isActive(sack)) return remaining;
+        if (!isActive(sack) || !canStore(toInsert)) return remaining;
 
         ItemStack leftover = toInsert.copy();
         leftover.setCount(remaining);
-        return insertToInternalInventory(sack, leftover);
+        return insertToInternalInventory(sack, leftover, level.registryAccess());
     }
 
     public static int interceptPickup(ServerLevel level, ItemStack sack, ItemStack pickedUp) {
@@ -191,10 +198,11 @@ public class ItemVoidSack extends Item
         return receive(level, sack, pickedUp);
     }
 
-    private static int insertToInternalInventory(ItemStack sack, ItemStack toInsert) {
-        SimpleContainer inv = loadInventory(sack);
+    private static int insertToInternalInventory(ItemStack sack, ItemStack toInsert,
+                                                 HolderLookup.Provider registries) {
+        SimpleContainer inv = loadInventory(sack, registries);
         ItemStack remainder = inv.addItem(toInsert.copy());
-        saveInventory(sack, inv);
+        saveInventory(sack, inv, registries);
         return remainder.getCount();
     }
 
@@ -306,10 +314,7 @@ public class ItemVoidSack extends Item
                     .withStyle(ChatFormatting.DARK_GRAY));
         }
 
-        SimpleContainer inv = loadInventory(stack);
-        int used = 0;
-        for (int i = 0; i < inv.getContainerSize(); i++)
-            if (!inv.getItem(i).isEmpty()) used++;
+        int used = getData(stack).getList(TAG_ITEMS, Tag.TAG_COMPOUND).size();
 
         tooltip.add(Component.translatable(
                 "item.rabbittools.void_sack.slots_used", used, SIZE)

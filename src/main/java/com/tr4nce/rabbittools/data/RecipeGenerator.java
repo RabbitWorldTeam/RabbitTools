@@ -54,6 +54,14 @@ public class RecipeGenerator extends RecipeProvider {
     }
 
     private void builderToolRecipes(RecipeOutput output) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.BUILDING_WRENCH.get())
+                .define('I', Items.IRON_INGOT)
+                .pattern("I I")
+                .pattern(" I ")
+                .pattern(" I ")
+                .unlockedBy("has_iron", has(Items.IRON_INGOT))
+                .save(output);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.MASONRY_TROWEL.get())
                 .define('I', Items.IRON_INGOT)
                 .define('S', Items.STICK)

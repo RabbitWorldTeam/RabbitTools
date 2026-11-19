@@ -28,6 +28,7 @@ import com.tr4nce.rabbittools.events.VoidSackPickupHandler;
 import com.tr4nce.rabbittools.items.ModItems;
 import com.tr4nce.rabbittools.network.ModMessages;
 import com.tr4nce.rabbittools.registry.ModMenuTypes;
+import com.tr4nce.rabbittools.registry.ModSounds;
 import com.tr4nce.rabbittools.wand.undo.UndoHistory;
 
 @Mod(RabbitTools.MODID)
@@ -58,6 +59,7 @@ public class RabbitTools {
         ModRecipes.RECIPE_SERIALIZERS.register(eventBus);
         ModCreativeTabs.register(eventBus);
         ModMenuTypes.register(eventBus);
+        ModSounds.SOUND_EVENTS.register(eventBus);
         ModStats.CUSTOM_STATS.register(eventBus);
 
         container.registerConfig(ModConfig.Type.SERVER, ConfigServer.SPEC);

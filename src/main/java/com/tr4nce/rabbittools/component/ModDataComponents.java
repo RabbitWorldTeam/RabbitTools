@@ -27,6 +27,12 @@ public class ModDataComponents
                     .networkSynchronized(WandOptions.DIRECTION.STREAM_CODEC)
                     .build());
 
+    public static final Supplier<DataComponentType<Boolean>> WIDE_MINING =
+            DATA_COMPONENT_TYPES.register("wide_mining", () -> DataComponentType.<Boolean>builder()
+                    .persistent(Codec.BOOL)
+                    .networkSynchronized(ByteBufCodecs.BOOL)
+                    .build());
+
     public static final Supplier<DataComponentType<Boolean>> REPLACE = DATA_COMPONENT_TYPES.register("replace", () ->
             DataComponentType.<Boolean>builder()
                     .persistent(Codec.BOOL)

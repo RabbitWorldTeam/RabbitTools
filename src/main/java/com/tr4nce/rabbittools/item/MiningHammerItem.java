@@ -1,6 +1,7 @@
 package com.tr4nce.rabbittools.item;
 
 import com.tr4nce.rabbittools.RabbitTools;
+import com.tr4nce.rabbittools.component.ModDataComponents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -30,10 +31,14 @@ public final class MiningHammerItem extends PickaxeItem {
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onBlockDrops(BlockDropsEvent event) {
-        if (MINING_AREA.get() != null
-                || !(event.getBreaker() instanceof ServerPlayer player)
-                || player.isShiftKeyDown()
-                || !(event.getTool().getItem() instanceof MiningHammerItem hammer)
+        if (!(event.getBreaker() instanceof ServerPlayer player)
+                || !(event.getTool().getItem() instanceof MiningHammerItem hammer)) {
+            return;
+        }
+        if (hammer == HammerItems.NEUTRONIUM_MINING_HAMMER.get() && !player.isCreative()) {
+            collectDrops(event, player);
+        }
+        if (MINING_AREA.get() != null || player.isShiftKeyDown()
                 || !event.getState().is(BlockTags.MINEABLE_WITH_PICKAXE)) {
             return;
         }
@@ -47,7 +52,7 @@ public final class MiningHammerItem extends PickaxeItem {
         Direction.Axis axis = miningAxis(player, level, center, event.getState());
         MINING_AREA.set(true);
         try {
-            for (BlockPos pos : miningPlane(center, axis)) {
+            for (BlockPos pos : miningPlane(center, axis, miningRadius(tool))) {
                 if (pos.equals(center)) continue;
                 if (tool.isEmpty() || player.getMainHandItem() != tool) return;
                 if (canMine(level, pos, player)) {
@@ -59,10 +64,26 @@ public final class MiningHammerItem extends PickaxeItem {
         }
     }
 
-    public static Iterable<BlockPos> miningPlane(BlockPos center, Direction.Axis axis) {
-        int x = axis == Direction.Axis.X ? 0 : 1;
-        int y = axis == Direction.Axis.Y ? 0 : 1;
-        int z = axis == Direction.Axis.Z ? 0 : 1;
+    private static void collectDrops(BlockDropsEvent event, ServerPlayer player) {
+        event.getDrops().removeIf(drop -> {
+            ItemStack original = drop.getItem();
+            ItemStack remainder = original.copy();
+            player.getInventory().add(remainder);
+            if (remainder.isEmpty()) return true;
+            if (remainder.getCount() != original.getCount()) drop.setItem(remainder);
+            return false;
+        });
+    }
+
+    public static int miningRadius(ItemStack tool) {
+        return tool.is(HammerItems.NEUTRONIUM_MINING_HAMMER.get())
+                && tool.getOrDefault(ModDataComponents.WIDE_MINING.get(), false) ? 2 : 1;
+    }
+
+    public static Iterable<BlockPos> miningPlane(BlockPos center, Direction.Axis axis, int radius) {
+        int x = axis == Direction.Axis.X ? 0 : radius;
+        int y = axis == Direction.Axis.Y ? 0 : radius;
+        int z = axis == Direction.Axis.Z ? 0 : radius;
         return BlockPos.betweenClosed(center.offset(-x, -y, -z), center.offset(x, y, z));
     }
 

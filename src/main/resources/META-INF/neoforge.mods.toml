@@ -9,6 +9,9 @@ displayName="RabbitTools"
 authors="TR4NCE; Construction Wands contributors: ThetaDev, SrNadien"
 description="Mining hammers and construction wands for RabbitHouse. Includes construction cores, undo, previews and container supplies."
 
+[[mixins]]
+config="rabbittools.mixins.json"
+
 [[dependencies.rabbittools]]
 modId="neoforge"
 type="required"

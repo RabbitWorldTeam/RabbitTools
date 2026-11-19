@@ -1,6 +1,8 @@
 package com.tr4nce.rabbittools.client;
 
 import com.mojang.blaze3d.platform.InputConstants;
+import com.tr4nce.rabbittools.item.HammerItems;
+import com.tr4nce.rabbittools.network.PacketToggleMiningMode;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -61,6 +63,11 @@ public class ClientEvents
     public void onLeftClickEmpty(PlayerInteractEvent.LeftClickEmpty event) {
         Player player = event.getEntity();
 
+        if (player != null && player.isShiftKeyDown() && !player.isSpectator()
+                && event.getItemStack().is(HammerItems.NEUTRONIUM_MINING_HAMMER.get())) {
+            ModMessages.sendToServer(new PacketToggleMiningMode());
+            return;
+        }
         if(player == null || !modeKeyCombDown(player)) return;
 
         ItemStack wand = event.getItemStack();

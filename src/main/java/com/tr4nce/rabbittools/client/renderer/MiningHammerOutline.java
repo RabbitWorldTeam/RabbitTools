@@ -40,7 +40,8 @@ public final class MiningHammerOutline {
         PoseStack.Pose pose = event.getPoseStack().last();
         VertexConsumer lines = event.getMultiBufferSource().getBuffer(RenderType.lines());
         CollisionContext context = CollisionContext.of(player);
-        for (BlockPos pos : MiningHammerItem.miningPlane(center, hit.getDirection().getAxis())) {
+        int radius = MiningHammerItem.miningRadius(player.getMainHandItem());
+        for (BlockPos pos : MiningHammerItem.miningPlane(center, hit.getDirection().getAxis(), radius)) {
             if (pos.equals(center) || !MiningHammerItem.canMine(level, pos, player)) continue;
 
             VoxelShape shape = level.getBlockState(pos).getShape(level, pos, context);

@@ -1,8 +1,10 @@
 package com.tr4nce.rabbittools.items;
 
+import com.tr4nce.rabbittools.items.tool.BuildingWrenchItem;
 import com.tr4nce.rabbittools.items.tool.MasonryTrowelItem;
 import com.tr4nce.rabbittools.items.tool.MeasuringTapeItem;
 import com.tr4nce.rabbittools.items.tool.PaintbrushItem;
+import com.tr4nce.rabbittools.items.tool.ScrewdriverItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tiers;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -33,6 +35,10 @@ public class ModItems
     public static final DeferredItem<Item> NETHERITE_TRAVEL_STAFF = ITEMS.register("netherite_travel_staff",
             () -> new TravelStaffItem(new Item.Properties().durability(128).fireResistant(), 20));
 
+    public static final DeferredItem<ScrewdriverItem> SCREWDRIVER = ITEMS.register("screwdriver",
+            () -> new ScrewdriverItem(new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<BuildingWrenchItem> BUILDING_WRENCH = ITEMS.register("building_wrench",
+            () -> new BuildingWrenchItem(new Item.Properties().stacksTo(1)));
     public static final DeferredItem<MasonryTrowelItem> MASONRY_TROWEL = ITEMS.register("masonry_trowel",
             () -> new MasonryTrowelItem(new Item.Properties().durability(250)));
     public static final DeferredItem<MeasuringTapeItem> MEASURING_TAPE = ITEMS.register("measuring_tape",

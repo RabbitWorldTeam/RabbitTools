@@ -28,6 +28,8 @@ public class LanguageGenerator extends LanguageProvider {
         addItem(ModItems.INFINITY_WAND_HEAD, "Infinity Wand Head");
         addItem(ModItems.DIAMOND_TRAVEL_STAFF, "Diamond Travel Staff");
         addItem(ModItems.NETHERITE_TRAVEL_STAFF, "Netherite Travel Staff");
+        add("item.rabbittools.building_wrench", "Building Wrench");
+        add("item.rabbittools.screwdriver", "Screwdriver");
         add("item.rabbittools.masonry_trowel", "Masonry Trowel");
         add("item.rabbittools.measuring_tape", "Measuring Tape");
         add("item.rabbittools.paintbrush", "Paintbrush");
@@ -1602,6 +1604,8 @@ add("key.rabbittools.exchange_select", "Değişim Bloğu Seç");
         addItem(ModItems.INFINITY_WAND_HEAD, "无限杖头");
         addItem(ModItems.DIAMOND_TRAVEL_STAFF, "钻石传送手杖");
         addItem(ModItems.NETHERITE_TRAVEL_STAFF, "下界合金传送手杖");
+        add("item.rabbittools.building_wrench", "建筑扳手");
+        add("item.rabbittools.screwdriver", "螺丝刀");
         add("item.rabbittools.masonry_trowel", "砌筑铲");
         add("item.rabbittools.measuring_tape", "测量尺");
         add("item.rabbittools.paintbrush", "上色刷");
